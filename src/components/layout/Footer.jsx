@@ -36,7 +36,7 @@ const Footer = () => {
           {/* Right Section */}
           <div className="text-center lg:text-left">
             <h4 className="text-lg font-semibold mb-2">Contact</h4>
-            <div className="inline-block bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 cursor-pointer flex items-center gap-2">
+            <div className=" bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600 cursor-pointer flex items-center gap-2">
               <Mail size={18} />
               <span>info@travel.com</span>
             </div>
