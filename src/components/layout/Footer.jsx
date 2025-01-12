@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Youtube, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -21,15 +21,9 @@ const Footer = () => {
             <p>U.S. of America</p>
             <div className="flex justify-center lg:justify-start gap-4 mt-4">
               {/* Social Media Links */}
-              <div className="text-gray-400 hover:text-white cursor-pointer">
-                <Facebook size={20} />
-              </div>
-              <div className="text-gray-400 hover:text-white cursor-pointer">
-                <Twitter size={20} />
-              </div>
-              <div className="text-gray-400 hover:text-white cursor-pointer">
-                <Youtube size={20} />
-              </div>
+              <div className="text-gray-400 hover:text-white cursor-pointer"></div>
+              <div className="text-gray-400 hover:text-white cursor-pointer"></div>
+              <div className="text-gray-400 hover:text-white cursor-pointer"></div>
             </div>
           </div>
 
