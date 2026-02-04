@@ -1,0 +1,5 @@
+yarn run v1.22.22
+$ E:\raahi\raahi\node_modules\.bin\tsc --noEmit
+src/lib/utils.ts(4,20): error TS7019: Rest parameter 'inputs' implicitly has an 'any[]' type.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
