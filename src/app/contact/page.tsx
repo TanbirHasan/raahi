@@ -74,7 +74,7 @@ export default function ContactPage() {
             </section>
 
             {/* Overlapping Contact Section */}
-            <section className="relative z-20 -mt-32 pb-24">
+            <section className="relative z-20 -mt-32 pb-24 max-w-7xl mx-auto">
                 <div className="container mx-auto px-4">
                     <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
 

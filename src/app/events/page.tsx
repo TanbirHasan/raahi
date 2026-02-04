@@ -94,91 +94,95 @@ export default function EventsPage() {
                 </div>
             </section>
 
-            {/* Filter Section */}
-            <section className="py-12 bg-white sticky top-16 z-30 border-b border-slate-100">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap items-center justify-between gap-8">
-                        {/* Category Pills */}
-                        <div className="flex gap-2 p-1 bg-slate-50 rounded-full border border-slate-100">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => setSelectedCategory(cat)}
-                                    className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${selectedCategory === cat
+            <div className="max-w-7xl mx-auto">
+                {/* Filter Section */}
+                <section className="py-12 bg-white sticky top-16 z-30 border-b border-slate-100 ">
+                    <div className="container mx-auto px-4">
+                        <div className="flex flex-wrap items-center justify-between gap-8">
+                            {/* Category Pills */}
+                            <div className="flex gap-2 p-1 bg-slate-50 rounded-full border border-slate-100">
+                                {categories.map((cat) => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setSelectedCategory(cat)}
+                                        className={`px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${selectedCategory === cat
                                             ? "bg-slate-900 text-white shadow-lg"
                                             : "text-slate-500 hover:text-slate-900"
-                                        }`}
-                                >
-                                    {cat}
-                                </button>
-                            ))}
-                        </div>
+                                            }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
+                            </div>
 
-                        {/* Results Count & Sort */}
-                        <div className="flex items-center gap-6">
-                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
-                                <span className="text-slate-900">{filteredEvents.length}</span> Results Found
-                            </p>
-                            <Button variant="ghost" className="rounded-full text-xs font-bold uppercase tracking-widest text-slate-500 gap-2">
-                                <SlidersHorizontal className="w-4 h-4" />
-                                Sort By
-                            </Button>
+                            {/* Results Count & Sort */}
+                            <div className="flex items-center gap-6">
+                                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                                    <span className="text-slate-900">{filteredEvents.length}</span> Results Found
+                                </p>
+                                <Button variant="ghost" className="rounded-full text-xs font-bold uppercase tracking-widest text-slate-500 gap-2">
+                                    <SlidersHorizontal className="w-4 h-4" />
+                                    Sort By
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            {/* Grid Section */}
-            <section className="py-24">
-                <div className="container mx-auto px-4">
-                    <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-                        layout
-                    >
-                        <AnimatePresence mode="popLayout">
-                            {filteredEvents.map((event, index) => (
-                                <motion.div
-                                    key={event.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4 }}
-                                >
-                                    <EventCard event={event} index={index} />
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </motion.div>
-
-                    {filteredEvents.length === 0 && (
+                {/* Grid Section */}
+                <section className="py-24">
+                    <div className="container mx-auto px-4">
                         <motion.div
-                            className="py-32 text-center"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+                            layout
                         >
-                            <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                                <Search className="w-10 h-10 text-slate-300" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">No expeditions found</h3>
-                            <p className="text-slate-500 max-w-sm mx-auto font-light">
-                                We couldn't find any tours matching your current filters. Try adjusting your search criteria.
-                            </p>
-                            <Button
-                                variant="link"
-                                className="mt-4 text-primary font-bold uppercase tracking-widest text-xs"
-                                onClick={() => {
-                                    setSearchTerm("");
-                                    setSelectedCountry("all");
-                                    setSelectedCategory("all");
-                                }}
-                            >
-                                Clear All Filters
-                            </Button>
+                            <AnimatePresence mode="popLayout">
+                                {filteredEvents.map((event, index) => (
+                                    <motion.div
+                                        key={event.id}
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.4 }}
+                                    >
+                                        <EventCard event={event} index={index} />
+                                    </motion.div>
+                                ))}
+                            </AnimatePresence>
                         </motion.div>
-                    )}
-                </div>
-            </section>
+
+                        {filteredEvents.length === 0 && (
+                            <motion.div
+                                className="py-32 text-center"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                            >
+                                <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <Search className="w-10 h-10 text-slate-300" />
+                                </div>
+                                <h3 className="text-2xl font-bold text-slate-900 mb-2">No expeditions found</h3>
+                                <p className="text-slate-500 max-w-sm mx-auto font-light">
+                                    We couldn't find any tours matching your current filters. Try adjusting your search criteria.
+                                </p>
+                                <Button
+                                    variant="link"
+                                    className="mt-4 text-primary font-bold uppercase tracking-widest text-xs"
+                                    onClick={() => {
+                                        setSearchTerm("");
+                                        setSelectedCountry("all");
+                                        setSelectedCategory("all");
+                                    }}
+                                >
+                                    Clear All Filters
+                                </Button>
+                            </motion.div>
+                        )}
+                    </div>
+                </section>
+            </div>
+
+
         </div>
     );
 }
